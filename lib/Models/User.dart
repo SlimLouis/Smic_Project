@@ -5,11 +5,11 @@ class User {
   User(this.email, this.password);
 
   Map toJson() => {
-    'email': email,
-    'password': password,
-  };
+        'email': email,
+        'password': password,
+      };
 
-  User.fromJson(Map json) :
-  password = json['password'],
-  email = json['email'];
+  User.fromJson(Map json)
+      : password = json['password'],
+        email = json['email'];
 }

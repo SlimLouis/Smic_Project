@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:api_calls/Models/Product.dart';
 import 'package:api_calls/Pages/DetailsProduct.dart';
+import 'package:api_calls/Requests/ApiRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:api_calls/Models/User.dart';
 import 'package:api_calls/Providers/UserProvider.dart';
 
 import 'package:provider/provider.dart';
-import 'package:api_calls/Requests/GithubRequests.dart';
 
 class FollowingPage extends StatefulWidget {
   final List data2;
@@ -45,7 +45,7 @@ class _FollowingPageState extends State<FollowingPage> {
     }
 
     setState(() {
-      Github().fetchProducts(user.email, user.password).then((data) {
+      ApiRequest().fetchProducts(user.email, user.password).then((data) {
         Map<String, dynamic> ok = json.decode(data.body);
         data2 = ok["produits"];
       });

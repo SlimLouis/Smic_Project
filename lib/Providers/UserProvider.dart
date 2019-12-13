@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:api_calls/Models/Product.dart';
+import 'package:api_calls/Requests/ApiRequest.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:api_calls/Models/User.dart';
-import 'package:api_calls/Requests/GithubRequests.dart';
 
 class UserProvider with ChangeNotifier {
   User user;
@@ -20,7 +20,7 @@ class UserProvider with ChangeNotifier {
   Future<bool> fetchUser(username, email) async {
     setLoading(true);
 
-    await Github().fetchProducts(username, email).then((data) {
+    await ApiRequest().fetchProducts(username, email).then((data) {
       setLoading(false);
       Map<String, dynamic> result = json.decode(data.body);
       if (data.statusCode == 200 &&
