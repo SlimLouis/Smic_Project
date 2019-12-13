@@ -109,6 +109,7 @@ class HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white.withOpacity(.1)),
                 child: TextField(
+                  obscureText: true,
                   onChanged: (value) {
                     Provider.of<UserProvider>(context).setMessage(null);
                   },
@@ -116,6 +117,7 @@ class HomePageState extends State<HomePage> {
                   enabled: !Provider.of<UserProvider>(context).isLoading(),
                   style: TextStyle(color: Colors.white, fontSize: 20),
                   decoration: InputDecoration(
+                    
                       errorText:
                           Provider.of<UserProvider>(context).getMessage(),
                       border: InputBorder.none,
